@@ -4,6 +4,8 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 import logging
 
+import classify_animal
+
 # Set up Flask app
 app = Flask(__name__)
 
@@ -59,21 +61,14 @@ def upload_image():
                 os.remove(file_path)  # Clean up
                 return jsonify({"error": "Invalid image file"}), 400
             
-            # Here you could integrate your Hugging Face binary
-            # For now, just return a success message with dimensions
-            img = Image.open(file_path)
-            width, height = img.size
-            img.close()
-            
+            inference = classify_animal.classify_image_with_binary(file_path)
+
             # Clean up the temporary file (optional)
             os.remove(file_path)
             logger.info(f"Temporary file {file_path} removed")
             
             return jsonify({
-                "message": "Image received and processed successfully",
-                "filename": filename,
-                "width": width,
-                "height": height
+                "message": inference,
             }), 200
         
         else:
