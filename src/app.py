@@ -67,9 +67,7 @@ def upload_image():
             os.remove(file_path)
             logger.info(f"Temporary file {file_path} removed")
             
-            return jsonify({
-                "message": inference,
-            }), 200
+            return jsonify(inference), 200
         
         else:
             logger.error("Invalid file type")
