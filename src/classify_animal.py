@@ -17,3 +17,5 @@ def classify_image_with_binary(image_path):
 
     # Run inference
     results = pipe(image)
+
+    return results
