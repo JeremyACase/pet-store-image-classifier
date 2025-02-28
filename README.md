@@ -1,5 +1,5 @@
 # Pet Store: Image Classifier
-This is a pet store Image Classifier code that wraps the [Fabiuas/Animal-classifier](https://huggingface.co/Fabiuas/Animal-classifier) model found.
+This is a pet store Image Classifier code that wraps the [Fabiuas/Animal-classifier](https://huggingface.co/Fabiuas/Animal-classifier) model.
 
 ## Quickstart: Smoketest
 This project is intended to be served up within an AMIGOS DAG. Even so, it has an "example_driver" script in the repo for use for local "smoke tests" as well as an example of how to send the model images RESTfully.
